@@ -1,0 +1,26 @@
+body{
+	background-color: lightgrey;
+}
+
+h1{
+	display: flex;
+	justify-content: center;
+}
+
+h2{
+	text-decoration: underline;
+}
+
+#cacher{
+	display : none;
+}
+
+img{
+	width: 20em;
+}
+
+
+
+.article{
+	margin: 1%;
+}
