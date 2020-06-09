@@ -1,15 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
-    <title>La Boutique du BDE - Votre panier</title>
-    <?php include("head.php"); ?>
-    <link rel="stylesheet" href="../CSS/header.css">
-    <link rel="stylesheet" href="../CSS/shop.css">
-    <link rel="stylesheet" href="../CSS/admin.css">
-</head>
-
-
+<?php include("head.php"); ?>
 <body>
 <?php include("header.php"); ?>
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center border-bottom intern">
@@ -30,7 +22,6 @@
             </table>
         </div>
     </div>
-    <?php include("footer.php") ?>
 </body>
-
+    <?php include("footer.php") ?>
 </html>

@@ -35,19 +35,17 @@
                 				<input type="password" name="password2" id="password2" class="form-control input-lg" placeholder="Confirmer le mot de passe">
               				</div>
               				<div class="form-group">
-              				<label for="campus">Campus CESI</label>
+              				<label for="campus">Statut</label>
                 				<select name="campus" id="campus" class="form-control input-lg">
                 					<option>Choisissez...</option>
-									<option value="1">Arras</option>
-									<option value="2">Bordeaux</option>
-									<option value="3">Reims</option>
-									<option value="4">Oran</option>
+									<option value="Entreprise">Entreprise</option>
+									<option value="Partenaire">Partenaire</option>
               					</select>
 	          				</div>    
 							<div class="form-check">
 								<label class="form-check-label">
 								  <input type="checkbox" class="form-check-input">
-								  En cliquant sur ce bouton, vous acceptez les <a href="cgu.php">Conditions Générales d'Utilisation</a> et les <a href="cgv.php">Conditions Générales de Vente</a>
+								  En cliquant sur ce bouton, vous acceptez les <a href="cgu.php">Conditions Générales d'Utilisation</a> du site.
 								</label>
 							  </div>
                 			<div>
@@ -71,8 +69,8 @@
 							</div>
 							<div>
 								<input type="submit" class="btn btn-md" value="Se connecter">
-								<a href="forgetmdp.php">Mot de passe oublié</a>
-							</div> 
+								<a class="btn btn-md" href="forgetmdp.php">Mot de passe oublié</a>
+							</div>
  						</fieldset>
 				</form>	
 				</div>

@@ -1,9 +1,35 @@
-<footer class="page-footer  font-small">
-    <div class="text-center py-3 item-contact">
-        <a class="link-footer" href="mentions.php">Mentions légales</a>
-        <a class="link-footer" href="contact.php">Contactez-nous !</a>
+<!-- Footer -->
+<footer class="page-footer font-small indigo pt-4 mt-4">
+
+    <!-- Footer Links -->
+    <div class="container text-center text-md-center">
+
+        <!-- Grid column -->
+        <div>
+
+          <!-- Links -->
+          <h5 class="text-uppercase">Liens utiles</h5>
+
+          <ul class="list-unstyled">
+            <li>
+              <a href="mentions.php">Mentions légales</a>
+            </li>
+            <li>
+              <a href="contact.php">Contactez-nous</a>
+            </li>
+          </ul>
+
+        </div>
+        <!-- Grid column -->
+
     </div>
-    <div class="text-center pb-3 ">© 2020 Copyright:
-        <a href="portal.php"> Team Solidarity Bond - 51</a>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright: 
+      <a href="#">Team Solidarity Bond - 51</a>
     </div>
+    <!-- Copyright -->
+
 </footer>
+<!-- Footer -->

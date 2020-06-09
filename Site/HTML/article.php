@@ -3,12 +3,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
-    <title>L'article de ta vie</title>
-    <?php include("head.php"); ?>
-    <link rel="stylesheet" href="../CSS/header.css">
-    <link rel="stylesheet" href="../CSS/shop.css">
-</head>
+<?php include("head.php"); ?>
 
 <body>
 <?php include("header.php"); ?>
@@ -34,7 +29,7 @@
 	            <br>
 	            <p>Prix:  <?=$_SESSION['prixProduit']?> euros</p>
 	            <br>
-	            <form method="POST" action="../PHP/manage/scriptAddToCart.php?id_produit=<?=$_GET['article']?>"> 
+	            <form method="POST" action="../PHP/manage/scriptAddToCart.php?id_produit=<?=$_GET['id']?>"> 
               <label for="quantity">Quantité</label>
                 <select name="quantity" id="quantity" class="form-control input-lg">
                 <option>Choisissez...</option>

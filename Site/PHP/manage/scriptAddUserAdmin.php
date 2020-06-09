@@ -8,13 +8,13 @@ if($_POST['formInscription'] == "Ajouter") {
    $status = htmlspecialchars($_POST['status']);
    $campus = htmlspecialchars($_POST['campus']);
 
-    if(isset($nom) && isset($prenom) && isset($mail) && isset($password) && isset($status) && isset($campus)) {
-        $insertmbr = $bdd->prepare("INSERT INTO site_users (name, surname, mail, password, status, id_CESI_Campuses) VALUES ('$nom', '$prenom', '$mail', '$password', '$status', '$campus')");
+    if(isset($nom) && isset($prenom) && isset($mail) && isset($password) && isset($status)) {
+        $insertmbr = $bdd->prepare("INSERT INTO site_users (name, surname, mail, password, status) VALUES ('$nom', '$prenom', '$mail', '$password', '$status')");
         $insertmbr->execute();
         var_dump($insertmbr);
         $connexion = $insertmbr->fetch() ? "Votre compte a bien été créé !" : "Echec de la création de l'utilisateur";
         echo $connexion;
-        }else {
+        } else {
             $erreur = "Vos mots de passes ne correspondent pas !";
             echo $erreur;
         }

@@ -21,5 +21,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js" crossorigin="anonymous"></script>
 
 <link rel="stylesheet" href="../css/header.css">
+<link rel="stylesheet" href="../css/admin.css">
 
 <link rel="icon" href="favicon.ico">

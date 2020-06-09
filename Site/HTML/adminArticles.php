@@ -1,10 +1,6 @@
 <!doctype html>
 <html lang="fr">
-<head>
-    <?php include("head.php"); ?>
-	<title>Gérer les articles</title>
-	<link rel="stylesheet" href="../CSS/admin.css">
-</head>
+<?php include("head.php"); ?>
 
 <body>
     <?php include("header.php"); ?>
@@ -75,16 +71,6 @@
 							<div class="form-group">
                             <input type="text" name="stock" id="stock" class="form-control input-lg" placeholder="Stock">
                             </div>
-							<div class="form-group">
-              					<label for="campus">Campus CESI</label>
-                					<select name="campus" id="campus" class="form-control input-lg">
-                						<option>Choisissez...</option>
-		              					<option value="1">Arras</option>
-		              					<option value="2">Bordeaux</option>
-		              					<option value="3">Reims</option>
-										<option value="4">Oran</option>
-              						</select>
-	          				</div>    
                             <div>
 								<input type="submit" name="formScript" class="btn btn-md" value="Ajouter">
 							</div> 
@@ -115,16 +101,6 @@
 							<div class="form-group">
                             <input type="text" name="stock" id="stock" class="form-control input-lg" placeholder="Stock">
                             </div>
-							<div class="form-group">
-              					<label for="campus">Campus CESI</label>
-                					<select name="campus" id="campus" class="form-control input-lg">
-                						<option>Choisissez...</option>
-		              					<option value="1">Arras</option>
-		              					<option value="2">Bordeaux</option>
-		              					<option value="3">Reims</option>
-										<option value="4">Oran</option>
-              						</select>
-	          				</div>
                             <div>
 								<input type="submit" name="formScript" class="btn btn-md" value="Modifier">
 							</div> 
@@ -142,7 +118,5 @@
 
     </main>
 </body>
-<footer>
 	<?php include("footer.php"); ?>
-</footer>
 </html>

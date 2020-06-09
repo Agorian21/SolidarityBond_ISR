@@ -7,7 +7,6 @@
     <?php include("header.php"); ?>
     <main role="main" class="ml-sm-auto col-lg-10 px-4">
 	<p class="text-uppercase pull-center"> Liste des utilisateurs </p>
-	<link rel="stylesheet" href="../CSS/admin.css">
     </head>
     <body>
     <table id="list_table_json" class="table table-responsive table-hover table-bordered">
@@ -67,36 +66,27 @@
 								<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Mot de passe">
                             </div>
                             <div class="form-check">
-							<legend>Statut au sein du CESI</legend>
-  							<input class="form-check-input" type="radio" name="status" id="status" value="0" >
-  								<label class="form-check-label" for="status">
-    							Membre BDE
-  								</label>
+								<legend>Statut</legend>
+									<input class="form-check-input" type="radio" name="status" id="status" value="Staff" >
+										<label class="form-check-label" for="status">
+											Membre du staff organisationnel
+										</label>
 							</div>
 							<div class="form-check">
-  								<input class="form-check-input" type="radio" name="status" id="status" value="1">
-  									<label class="form-check-label" for="status">
-    								Personnel CESI
-  									</label>
+								<input class="form-check-input" type="radio" name="status" id="status" value="Partenaire">
+									<label class="form-check-label" for="status">
+										Partenaire de l'organisation
+									</label>
 							</div>
 							<div class="form-check">
-  								<input class="form-check-input" type="radio" name="status" id="status" value="2">
-  									<label class="form-check-label" for="status">
-   									Etudiant
+								<input class="form-check-input" type="radio" name="status" id="status" value="Entreprise">
+									<label class="form-check-label" for="status">
+										Entreprise nécessitant nos services
 									</label>
 							</div>
 							<div class="form-group">
 								<input type="email" name="mail" id="mail" class="form-control input-lg" placeholder="Adresse mail">
 							</div>
-							<div class="form-group">
-              					<label for="campus">Campus CESI</label>
-                					<select name="campus" id="campus" class="form-control input-lg">
-                						<option>Choisissez...</option>
-		              					<option value="1">Arras</option>
-		              					<option value="2">Bordeaux</option>
-		              					<option value="3">Reims</option>
-              						</select>
-	          				</div>    
 								<input type="submit" name="formInscription" class="btn btn-md" value="Ajouter">
 							</div> 
                         </fieldset>
@@ -118,37 +108,27 @@
 								<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Mot de passe">
                             </div>
                             <div class="form-check">
-							<legend>Statut au sein du CESI</legend>
-  							<input class="form-check-input" type="radio" name="status" id="status" value="0" >
-  								<label class="form-check-label" for="status">
-    							Membre BDE
-  								</label>
+								<legend>Statut</legend>
+									<input class="form-check-input" type="radio" name="status" id="status" value="Staff" >
+										<label class="form-check-label" for="status">
+											Membre du staff organisationnel
+										</label>
 							</div>
 							<div class="form-check">
-  								<input class="form-check-input" type="radio" name="status" id="status" value="1">
-  									<label class="form-check-label" for="status">
-    								Personnel CESI
-  									</label>
+								<input class="form-check-input" type="radio" name="status" id="status" value="Partenaire">
+									<label class="form-check-label" for="status">
+										Partenaire de l'organisation
+									</label>
 							</div>
 							<div class="form-check">
-  								<input class="form-check-input" type="radio" name="status" id="status" value="2">
-  									<label class="form-check-label" for="status">
-   									Etudiant
+								<input class="form-check-input" type="radio" name="status" id="status" value="Entreprise">
+									<label class="form-check-label" for="status">
+										Entreprise nécessitant nos services
 									</label>
 							</div>
 							<div class="form-group">
 								<input type="email" name="mail" id="mail" class="form-control input-lg" placeholder="Adresse mail">
-							</div>
-							<div class="form-group">
-              					<label for="campus">Campus CESI</label>
-                					<select name="campus" id="campus" class="form-control input-lg">
-                						<option>Choisissez...</option>
-		              						<option value="1">Arras</option>
-		              						<option value="2">Bordeaux</option>
-										  	<option value="3">Reims</option>
-										  	<option value="4">Oran</option>
-              						</select>
-	          				</div>    
+							</div>  
 								<input type="submit" name="formScript" class="btn btn-md" value="Modifier">
 							</div> 
                         </fieldset>

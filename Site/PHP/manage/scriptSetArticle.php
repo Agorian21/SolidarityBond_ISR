@@ -1,9 +1,9 @@
 <?php
 session_start();
 include('bdd.php');
-if(isset($_GET['article'])) {
+if(isset($_GET['id'])) {
     $reqprod = $bdd->prepare("SELECT * FROM shop_products WHERE id = :id_produit");
-    $reqprod->bindValue(':id_produit', $_GET['article'], PDO::PARAM_INT);
+    $reqprod->bindValue(':id_produit', $_GET['id'], PDO::PARAM_INT);
     $reqprod->execute();
     $prodexist = $reqprod->rowCount();
     if($prodexist == 1) {
@@ -13,10 +13,10 @@ if(isset($_GET['article'])) {
     $_SESSION['picProduit'] = $connexion['pic_url'];
     $_SESSION['prixProduit'] = $connexion['price'];
     $_SESSION['stockProduit'] = $connexion['stock'];
-    session_write_close();
-    }else {
-    $erreur = "Eh bah non !";
+    } else {
+    $erreur = "Cet article est indisponible pour le moment.";
     echo $erreur;
     }
+    session_write_close();
 }
 ?>

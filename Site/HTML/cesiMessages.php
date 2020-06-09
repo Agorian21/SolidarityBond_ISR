@@ -1,10 +1,7 @@
 <!doctype html>
 <html lang="fr">
-<head>
     <?php include("head.php"); ?>
 	<title>Gérer les messages</title>
-	<link rel="stylesheet" href="../CSS/admin.css">
-</head>
 
 <body>
     <?php include("header.php"); ?>
@@ -51,19 +48,16 @@
     });
 });
 </script>
-                    <form role="form" method="post" action="../PHP/manage/scriptReportArticle.php">
-						<fieldset>							
-							<p class="text-uppercase pull-center"> Signaler un message </p>	
-							<div class="form-group">
-								<input type="text" name="id" id="id" class="form-control input-lg" placeholder="Identifiant du message à signaler">
-                            </div>
-								<input type="submit" name="formScript" class="btn btn-md" value="Reporter">
-                        </fieldset>
-                    </form>
-
-    </main>
+    <form role="form" method="post" action="../PHP/manage/scriptReportArticle.php">
+		<fieldset>							
+			<p class="text-uppercase pull-center"> Signaler un message </p>	
+				<div class="form-group">
+					<input type="text" name="id" id="id" class="form-control input-lg" placeholder="Identifiant du message à signaler">
+                </div>
+					<input type="submit" name="formScript" class="btn btn-md" value="Reporter">
+        </fieldset>
+    </form>
+</main>
 </body>
-<footer>
 	<?php include("footer.php"); ?>
-</footer>
 </html>

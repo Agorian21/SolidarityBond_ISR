@@ -59,21 +59,13 @@ div.desc {
     }
 }
 
-/*
-.clearfix:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-*/
-
 .articles {
     padding: 10px;
     float: left;
     width: 20em;
 }
 
-.info{
+.info {
     display: flex;
     flex: right;
     border: solid 1px black;
