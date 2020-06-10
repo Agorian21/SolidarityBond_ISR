@@ -32,7 +32,6 @@
             success: function(data){
              var event_data = '';
              $.each(data, function(index, value){
-                 console.log("data.user");
                     event_data += '<tr>';
                     event_data += '<td>'+value.product_name+'</td>';
                     event_data += '<td>'+value.quantity+'</td>';

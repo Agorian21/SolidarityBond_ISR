@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="fr">
     <?php include("head.php"); ?>
-	<title>Gérer les messages</title>
+	<title>Demandes de matières premières par le staff</title>
 
 <body>
     <?php include("header.php"); ?>
     <main role="main" class="ml-sm-auto col-lg-10 px-4">
-	<p class="text-uppercase pull-center"> Liste des messages </p>
+	<p class="text-uppercase pull-center"> Matières premières nécessaires pour le staff </p>
 
     </head>
     <body>
@@ -14,10 +14,9 @@
     <tr>
     <th>ID</th>
     <th>Nom</th>
-    <th>Prénom</th>
-	<th>Commentaire</th>
-	<th>Visibilité</th>
-    <th>Evénement concerné</th>
+    <th>Descriptif</th>
+	<th>Raison</th>
+	<th>Demande traitée</th>
     </tr>
     </table>
 	<script type="text/javascript">
@@ -34,10 +33,9 @@
                     event_data += '<tr>';
                     event_data += '<td>'+value.id+'</td>';
                     event_data += '<td>'+value.name+'</td>';
-                    event_data += '<td>'+value.surname+'</td>';
-                    event_data += '<td>'+value.content+'</td>';
-                    event_data += '<td>'+value.visibility+'</td>';
-                    event_data += '<td>'+value.event_name+'</td>';
+                    event_data += '<td>'+value.description+'</td>';
+                    event_data += '<td>'+value.reason+'</td>';
+                    event_data += '<td>'+value.isTreated+'</td>';
                     event_data += '</tr>';
                 });
             $("#list_table_json").append(event_data);
@@ -48,9 +46,9 @@
     });
 });
 </script>
-    <form role="form" method="post" action="../PHP/manage/scriptReportArticle.php">
+    <form role="form" method="post" action="../PHP/manage/scriptModifyStaffDemand.php">
 		<fieldset>							
-			<p class="text-uppercase pull-center"> Signaler un message </p>	
+			<p class="text-uppercase pull-center"> Modifier une demande </p>	
 				<div class="form-group">
 					<input type="text" name="id" id="id" class="form-control input-lg" placeholder="Identifiant du message à signaler">
                 </div>

@@ -12,7 +12,7 @@ if($_POST['formForget'] == "Envoyer") {
             $insertmbr = $bdd->prepare("UPDATE site_users SET `password` = '$password' WHERE id = $id_UserWhoForgetted");
             $insertmbr->execute();
             var_dump($insertmbr);
-            header('Location: ../../HTML/portal.php');
+            header('Location: ../../HTML/index.php');
             unset($_SESSION['id_userwhoforgetted']);
         }
         }else{

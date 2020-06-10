@@ -11,10 +11,10 @@
   <p class="lead"><strong>Un membre de l'organisation vous recontactera sous peu pour vous donner les instructions à suivre.</strong> 
   <hr>
   <p>
-    Si vous avez quelconque souci, veuillez <a href="contact.php">nous contacter.</a>
+    Si vous avez quelconque souci, veuillez <a href="staffChat.php">nous contacter.</a>
   </p>
   <p class="lead">
-    <a class="btn btn-primary btn-sm" href="portal.php" role="button">Revenir à l'accueil</a>
+    <a class="btn btn-primary btn-sm" href="index.php" role="button">Revenir à l'accueil</a>
   </p>
 </div>
 </div>

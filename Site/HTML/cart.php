@@ -6,9 +6,7 @@
 <?php include("header.php"); ?>
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center border-bottom intern">
         <div class="intermain">
-            <h1 class="boutitle text-center">
-                <br>
-                <a>Votre panier</a>
+        <p class="text-uppercase pull-center"> Votre panier </p>
             </h1>
         <div class="corps">
             <table>

@@ -11,21 +11,21 @@ else if (!isset($_SESSION['name']) && !isset($_SESSION['surname'])) {
         <li class="nav-item">
             <a class="nav-link" href="accounts.php">Inscription</a>
         </li>';}
-if (isset($_SESSION['status']) && $_SESSION['status'] == "Entreprise") {
+if (isset($_SESSION['status']) && $_SESSION['status'] == 0) {
     echo '<li class="nav-item">
             <a class="nav-link" href="staffChat.php">Discuter avec le staff</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="cart.php">Votre panier</a>
             </li>';}
-if (isset($_SESSION['status']) && $_SESSION['status'] == "Partenaire") {
+if (isset($_SESSION['status']) && $_SESSION['status'] == 1) {
     echo '<li class="nav-item">
             <a class="nav-link" href="staffChat.php">Discuter avec le staff</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="partnerStaffDemands.php">Demandes de matière première par le staff</a>
             </li>';}
-if (isset($_SESSION['status']) && $_SESSION['status'] == "Staff"){
+if (isset($_SESSION['status']) && $_SESSION['status'] == 2){
     echo '<li class="nav-item">
             <a class="nav-link" href="adminArticles.php">Gérer les articles</a>
           </li>
