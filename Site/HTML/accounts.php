@@ -2,7 +2,8 @@
 <html lang="fr">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=no">
-    <?php include("head.php"); ?>
+	<?php include("head.php"); 
+	include("header.php");?>
 	<title>Connectez-vous</title>
 	<body>
 	<div class="container-fluid">
@@ -78,6 +79,5 @@
 		</div>
 	</div>
 	</body>
-	 
-
+	<?php include("footer.php"); ?>
 </html>

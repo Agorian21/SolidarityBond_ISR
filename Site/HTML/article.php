@@ -24,7 +24,7 @@ include("../PHP/manage/scriptSetArticle.php");?>
 	                <li><?=$_SESSION['descProduit']?></li>
 	            </ul>
 	            <br>
-	            <p>Prix:  <?=$_SESSION['prixProduit']?> euros</p>
+	            <p>Prix: <?=$_SESSION['prixProduit']?> euros</p>
 	            <br>
 	            <form method="POST" action="../PHP/manage/scriptAddToCart.php?id_produit=<?=$_GET['id']?>"> 
               <label for="quantity">Quantité</label>
@@ -36,7 +36,7 @@ include("../PHP/manage/scriptSetArticle.php");?>
 				<option value="50">50</option>
 		        <option value="100">100</option>
 				<option value="500">500</option>
-              </select>  
+              	</select>  
 			<input type="submit" value="Ajouter au panier" />   
 			<input type="reset" href="shop.php" value="Annuler">        
 			</form>
