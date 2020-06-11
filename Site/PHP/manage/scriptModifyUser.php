@@ -10,7 +10,7 @@ if($_POST['formScript'] == "Modifier") {
     $testval = true;
 
     if(isset($id) && isset($nom) && isset($prenom) && isset($mail) && isset($password) && isset($campus)) {
-                            $insertmbr = $bdd->prepare("UPDATE site_users SET name = '$nom', surname = '$prenom', mail = '$mail', password = '$password', id_CESI_Campuses = '$campus' WHERE id = '$id'");
+                            $insertmbr = $bdd->prepare("UPDATE user SET name = '$nom', surname = '$prenom', mail = '$mail', password = '$password', id_CESI_Campuses = '$campus' WHERE id = '$id'");
                             $insertmbr->execute();
                             $connexion = $insertmbr->fetch() ? "Votre compte a bien été modifié !" : "va te faire voir chez les grecs esti d'enculé";
                             echo $connexion;

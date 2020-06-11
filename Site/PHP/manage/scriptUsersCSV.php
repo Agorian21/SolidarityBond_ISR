@@ -1,7 +1,7 @@
 <?php
 include('bdd.php');
 // Check connection
-$result = $bdd->query("SELECT * FROM site_users");
+$result = $bdd->query("SELECT * FROM user");
 $result->execute();
 $fp = fopen('users.csv', 'w');
 foreach(($result->fetchAll(PDO::FETCH_ASSOC)) as $row) {

@@ -5,7 +5,7 @@ session_write_close();
 $mail = htmlspecialchars($_POST['mail']);
 include('bdd.php');                             
 if(isset($mail)) {
-$req = $bdd->prepare("SELECT id, mail, id_CESI_Campuses FROM site_users WHERE mail = '$mail'");
+$req = $bdd->prepare("SELECT id, mail, id_CESI_Campuses FROM user WHERE mail = '$mail'");
 $req->execute();
 $cesi_CampusToCompare = $req->fetch(PDO::FETCH_ASSOC);
 session_start();

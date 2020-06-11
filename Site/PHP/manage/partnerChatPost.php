@@ -27,5 +27,5 @@ else if (empty($_POST['message'])) {
 
 // Redirection du visiteur vers la page du minichat
 
-header('Location: ../../HTML/staffEntChat.php');
+header('Location: ../../HTML/staffChat.php');
 ?>

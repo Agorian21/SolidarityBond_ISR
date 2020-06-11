@@ -2,7 +2,7 @@
 session_start();
 include('bdd.php');
 if(isset($_GET['id'])) {
-    $reqprod = $bdd->prepare("SELECT * FROM shop_products WHERE id = :id_produit");
+    $reqprod = $bdd->prepare("SELECT * FROM product WHERE id = :id_produit");
     $reqprod->bindValue(':id_produit', $_GET['id'], PDO::PARAM_INT);
     $reqprod->execute();
     $prodexist = $reqprod->rowCount();

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Mentions légales</title>
-</head>
+<meta charset="UTF-8">
+<title>Mentions légales</title>
+<?php include("head.php");
+include("header.php"); ?>
 <body>
 <h1>BDE</h1>
 
@@ -69,4 +69,5 @@ La responsabilité du GALEC ne saurait être engagée pour tous inconvénients o
 ARTICLE 6 - INFORMATIONS A CARACTERE PERSONNEL
 Nous invitons les Clients à se référer à la Charte de protection des données personnelles accessible ici.
 </body>
+<?php include('footer.php'); ?>
 </html>

@@ -1,7 +1,7 @@
 <?php
 include('bdd.php');
 // Check connection
-$result = $bdd->prepare("SELECT * FROM can_participate WHERE id_Site_Users = :iduser AND id = :idevent");
+$result = $bdd->prepare("SELECT * FROM can_participate WHERE id_user = :iduser AND id = :idevent");
 $result->bindValue(':iduser', $_SESSION['id'], PDO::PARAM_INT);
 $result->bindValue(':idevent', $_GET['event'], PDO::PARAM_INT);
 $result->execute();

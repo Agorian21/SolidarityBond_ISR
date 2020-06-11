@@ -14,7 +14,7 @@ if($_POST['formInscription'] == "S'inscrire") {
         if($nomlength <= 255) {
             if($mail == $mail2) {
                 if(filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-                    $reqmail = $bdd->prepare("SELECT * FROM site_users WHERE mail = ?");
+                    $reqmail = $bdd->prepare("SELECT * FROM user WHERE mail = ?");
                     $reqmail->execute(array($mail));
                     $mailexist = $reqmail->rowCount();
                     if($mailexist == 0) {
@@ -29,7 +29,7 @@ if($_POST['formInscription'] == "S'inscrire") {
                     }
                     if($password == $password2 && $testval == true) {
                         // use exec() because no results are returned
-                        $insertmbr = $bdd->prepare("INSERT INTO site_users (name, surname, mail, password, id_CESI_Campuses) VALUES ('$nom', '$prenom', '$mail', '$password', '$campus')");
+                        $insertmbr = $bdd->prepare("INSERT INTO user (name, surname, mail, password, id_CESI_Campuses) VALUES ('$nom', '$prenom', '$mail', '$password', '$campus')");
                         $insertmbr->execute();
                         $connexion = $insertmbr->fetch() ? "Votre compte a bien été créé !" : "Echec de la création de l'utilisateur";
                         echo $connexion;

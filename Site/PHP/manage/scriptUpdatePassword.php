@@ -9,7 +9,7 @@ if($_POST['formForget'] == "Envoyer") {
         if((preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/', $_POST['password'])) == 1) {
             $testval = true;
             echo "Mot de passe valide";
-            $insertmbr = $bdd->prepare("UPDATE site_users SET `password` = '$password' WHERE id = $id_UserWhoForgetted");
+            $insertmbr = $bdd->prepare("UPDATE user SET `password` = '$password' WHERE id = $id_UserWhoForgetted");
             $insertmbr->execute();
             var_dump($insertmbr);
             header('Location: ../../HTML/index.php');
