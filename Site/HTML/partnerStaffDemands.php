@@ -22,7 +22,7 @@
 	<script type="text/javascript">
     $(document).ready(function(){
         $.ajax({
-         url: "http://localhost:8080/api/list_comments",
+         url: "http://localhost:8080/api/list_rawmaterialdemands",
          dataType: 'json',
          type: 'get',
          cache: false,
@@ -48,9 +48,9 @@
 </script>
     <form role="form" method="post" action="../PHP/manage/scriptModifyStaffDemand.php">
 		<fieldset>							
-			<p class="text-uppercase pull-center"> Modifier une demande </p>	
+			<p class="text-uppercase pull-center"> Valider une demande </p>	
 				<div class="form-group">
-					<input type="text" name="id" id="id" class="form-control input-lg" placeholder="Identifiant du message à signaler">
+					<input type="text" name="id" id="id" class="form-control input-lg" placeholder="Identifiant de la demande à valider">
                 </div>
 					<input type="submit" name="formScript" class="btn btn-md" value="Reporter">
         </fieldset>

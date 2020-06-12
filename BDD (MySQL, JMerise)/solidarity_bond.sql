@@ -22,7 +22,6 @@ DROP TABLE IF EXISTS `basket`;
 CREATE TABLE IF NOT EXISTS `basket` (
   `basketID` int(10) NOT NULL AUTO_INCREMENT,
   `productID` int(11) NOT NULL,
-  `productNAME` int(11) NOT NULL,
   `userID` int(11) NOT NULL,
   `basketQUANTITY` int(11) NOT NULL,
   PRIMARY KEY (`basketID`),
@@ -43,16 +42,19 @@ CREATE TABLE IF NOT EXISTS `chat` (
   `chatID` int(10) NOT NULL AUTO_INCREMENT,
   `userID` int(10) NOT NULL,
   `userSTATUS` tinyint(1) NOT NULL,
-  `chatMESSAGE` varchar(255) COLLATE utf8_bin NOT NULL,
-  `chatTIMER` int(20) NOT NULL,
+  `chatMESSAGE` varchar(2000) COLLATE utf8_bin NOT NULL,
+  `chatTIMER` varchar(15) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`chatID`),
   KEY `FK_userID` (`userID`),
   CONSTRAINT `FK_userID` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- Listage des données de la table solidarity_bond.chat : ~0 rows (environ)
+-- Listage des données de la table solidarity_bond.chat : ~2 rows (environ)
 DELETE FROM `chat`;
 /*!40000 ALTER TABLE `chat` DISABLE KEYS */;
+INSERT INTO `chat` (`chatID`, `userID`, `userSTATUS`, `chatMESSAGE`, `chatTIMER`) VALUES
+	(1, 1, 2, 'Test, Entreprise ? Vous me recevez ?', '2020-06-11'),
+	(6, 1, 2, 'Ceci est un second test, confirmation envoi message.', '2020-06-12');
 /*!40000 ALTER TABLE `chat` ENABLE KEYS */;
 
 -- Listage de la structure de la table solidarity_bond. orders
@@ -80,19 +82,24 @@ CREATE TABLE IF NOT EXISTS `product` (
   `picURL` varchar(300) COLLATE utf8_bin NOT NULL,
   `productSTOCK` int(10) NOT NULL,
   PRIMARY KEY (`productID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- Listage des données de la table solidarity_bond.product : ~0 rows (environ)
+-- Listage des données de la table solidarity_bond.product : ~1 rows (environ)
 DELETE FROM `product`;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
+INSERT INTO `product` (`productID`, `productNAME`, `productDESC`, `picURL`, `productSTOCK`) VALUES
+	(1, 'Masque FFP2', 'Ces masques serviront pour protéger vos voies respiratoires contre les particules fines et toxiques et contre les virus grippaux.', 'https://www.pharmaciedesteinfort.com/media/catalog/product/cache/cd30c5c2a49353086bf9c7be9820feea/m/a/masque_ffp2_kn95_1.jpg', 1500);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 
 -- Listage de la structure de la table solidarity_bond. raw_material
 DROP TABLE IF EXISTS `raw_material`;
 CREATE TABLE IF NOT EXISTS `raw_material` (
   `matID` int(10) NOT NULL AUTO_INCREMENT,
-  `NameRawMat` varchar(10) COLLATE utf8_bin NOT NULL,
-  `Quantity` int(10) NOT NULL,
+  `rawmatNAME` varchar(20) COLLATE utf8_bin NOT NULL,
+  `rawmatDESC` varchar(500) COLLATE utf8_bin NOT NULL,
+  `rawmatQUANTITY` int(10) NOT NULL,
+  `rawmatREASON` varchar(1000) COLLATE utf8_bin NOT NULL,
+  `isDemandTreated` tinyint(1) NOT NULL,
   PRIMARY KEY (`matID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -113,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`userID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- Listage des données de la table solidarity_bond.user : ~1 rows (environ)
+-- Listage des données de la table solidarity_bond.user : ~0 rows (environ)
 DELETE FROM `user`;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`userID`, `userLASTNAME`, `userFIRSTNAME`, `userMAIL`, `userPASSWORD`, `userSTATUS`) VALUES

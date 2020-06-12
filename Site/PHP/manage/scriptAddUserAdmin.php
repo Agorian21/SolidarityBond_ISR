@@ -6,10 +6,9 @@ if($_POST['formInscription'] == "Ajouter") {
    $mail = htmlspecialchars($_POST['mail']);
    $password = sha1($_POST['password']);
    $status = htmlspecialchars($_POST['status']);
-   $campus = htmlspecialchars($_POST['campus']);
 
     if(isset($nom) && isset($prenom) && isset($mail) && isset($password) && isset($status)) {
-        $insertmbr = $bdd->prepare("INSERT INTO user (name, surname, mail, password, status) VALUES ('$nom', '$prenom', '$mail', '$password', '$status')");
+        $insertmbr = $bdd->prepare("INSERT INTO user (userFIRSTNAME, userLASTNAME, userMAIL, userPASSWORD, userSTATUS) VALUES ('$nom', '$prenom', '$mail', '$password', '$status')");
         $insertmbr->execute();
         var_dump($insertmbr);
         $connexion = $insertmbr->fetch() ? "Votre compte a bien été créé !" : "Echec de la création de l'utilisateur";

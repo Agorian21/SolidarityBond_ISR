@@ -11,9 +11,9 @@ include("../PHP/manage/scriptSetArticle.php");?>
 	    <div class="articles">
 	          <div class="img">
 	    <a target="_blank" >
-	      <img class = "impor" src="<?=$_SESSION['picProduit']?>" alt="article_photo">
+	      <img class = "impor" src="<?=$picProduit?>" alt="article_photo">
 	    </a>
-	    <div class="desc"><?=$_SESSION['nomProduit']?></div>
+	    <div class="desc"><?=$nomProduit?></div>
 	    </div>
 	</div>
 	<br>
@@ -21,11 +21,8 @@ include("../PHP/manage/scriptSetArticle.php");?>
 	    <div class="info">
 	        <p>Description:</p>
 	            <ul>
-	                <li><?=$_SESSION['descProduit']?></li>
+	                <li><?=$descProduit?></li>
 	            </ul>
-	            <br>
-	            <p>Prix: <?=$_SESSION['prixProduit']?> euros</p>
-	            <br>
 	            <form method="POST" action="../PHP/manage/scriptAddToCart.php?id_produit=<?=$_GET['id']?>"> 
               <label for="quantity">Quantité</label>
                 <select name="quantity" id="quantity" class="form-control input-lg">
@@ -36,8 +33,10 @@ include("../PHP/manage/scriptSetArticle.php");?>
 				<option value="50">50</option>
 		        <option value="100">100</option>
 				<option value="500">500</option>
-              	</select>  
-			<input type="submit" value="Ajouter au panier" />   
+              	</select>
+			<?php if(isset($_SESSION['id'])) {	  
+			echo '<input type="submit" value="Ajouter au panier" />';
+			}; ?>   
 			<input type="reset" href="shop.php" value="Annuler">        
 			</form>
 	        </p>

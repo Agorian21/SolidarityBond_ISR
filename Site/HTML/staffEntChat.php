@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html>
+<meta charset="utf-8" />
+<title>Mini-chat</title>
 <?php include("head.php");
-include("header.php"); ?>
-        <meta charset="utf-8" />
-        <title>Mini-chat</title>
+include("header.php"); 
+if(isset($_SESSION['status'])) {
+$status = $_SESSION['status'];
+} else if (!isset($_SESSION['status'])) {
+    echo 'Vous devez être connecté pour effectuer cette opération.';
+    include("footer.php");
+    exit();
+}?>
     <style>
     form
     {
