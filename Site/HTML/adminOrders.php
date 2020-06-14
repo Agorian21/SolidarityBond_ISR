@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <?php include("head.php"); ?>
-	<title>Gérer les commandes</title>
+	<title> Gérer les commandes </title>
 	<link rel="stylesheet" href="../CSS/admin.css">
 </head>
 

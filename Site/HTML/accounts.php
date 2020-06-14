@@ -8,7 +8,7 @@
 	<body>
 	<div class="container-fluid">
 		<div class="container">
-			<h2 class="text-center" id="title">Connexion membres</h2>
+			<h2 class="text-center" id="title"> Connexion membres </h2>
 			 <p class="text-center">
 			</p>
  			<hr>

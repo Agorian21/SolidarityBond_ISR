@@ -15,7 +15,7 @@
         }
     };
     echo "</table>";
-    echo '<form action="basketRecap.php" method="POST">
+    echo '<form action="../PHP/manage/scriptFinalizeOrder.php" method="POST">
         <input type="submit" class="btn btn-md" value="Commander">
         </form>';
 ?>

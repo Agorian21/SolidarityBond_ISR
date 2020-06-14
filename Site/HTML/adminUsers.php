@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <?php include("head.php"); ?>
-	<title>Gérer les utilisateurs</title>
+	<title> Gérer les utilisateurs </title>
 
     <?php include("header.php"); ?>
     <main role="main" class="ml-sm-auto col-lg-10 px-4">
