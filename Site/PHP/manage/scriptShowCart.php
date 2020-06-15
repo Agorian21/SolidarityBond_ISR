@@ -7,11 +7,11 @@
 
     foreach($result->fetchAll(PDO::FETCH_ASSOC) as $rowOrder) {
         $search = $bdd->prepare("SELECT * FROM product WHERE productID = :productId");
-        $search->bindValue(':productId', $rowOrder['productNAME'], PDO::PARAM_INT);
+        $search->bindValue(':productId', $rowOrder['productID'], PDO::PARAM_STR);
         $search->execute();
 
         foreach($search->fetchAll(PDO::FETCH_ASSOC) as $rowProduct){ // iterate over all the results
-            echo "<tr><td>" . $rowOrder['productNAME'] . "</td><td>" . $rowOrder["basketQUANTITY"] . "</td><td>" . $rowProduct["stock"] ."</td></tr>";
+            echo "<tr><td>" . $rowProduct['productNAME'] . "</td><td>" . $rowOrder["basketQUANTITY"] . "</td></tr>";
         }
     };
     echo "</table>";

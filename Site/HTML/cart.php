@@ -11,8 +11,6 @@ if(isset($_SESSION['status'])) {
         include("footer.php");
         exit();
     }?>
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center border-bottom intern">
-        <div class="intermain">
         <p class="text-uppercase pull-center"> Votre panier </p>
             </h1>
         <div class="corps">
@@ -28,5 +26,5 @@ if(isset($_SESSION['status'])) {
         </div>
     </div>
 </body>
-    <?php include("footer.php") ?>
+    <?php include("footer.php"); ?>
 </html>

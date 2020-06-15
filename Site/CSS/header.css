@@ -2,7 +2,7 @@ body {
   font-size: .875rem;
 }
 footer{
-  background-color: #272b30;
+  background-color: #ffffff;
   margin-top: 30%;
 }
 .link-footer{
@@ -71,5 +71,14 @@ footer{
     padding-top: 5%;
 }
 
-
+.btn-indigo{
+  color: #fff;
+  background-color: #0495c9;
+  border-color: #357ebd; /*set the color you want here*/
+}
+.btn-indigo:hover, .btn-indigo:focus, .btn-indigo:active, .btn-indigo.active, .open>.dropdown-toggle.btn-indigo {
+  color: #fff;
+  background-color: #00b3db;
+  border-color: #285e8e; /*set the color you want here*/
+}
 

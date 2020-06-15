@@ -36,11 +36,11 @@
                 				<input type="password" name="password2" id="password2" class="form-control input-lg" placeholder="Confirmer le mot de passe">
               				</div>
               				<div class="form-group">
-              				<label for="campus">Statut</label>
-                				<select name="campus" id="campus" class="form-control input-lg">
+              				<label for="status">Statut</label>
+                				<select name="status" id="status" class="form-control input-lg">
                 					<option>Choisissez...</option>
-									<option value="Entreprise">Entreprise</option>
-									<option value="Partenaire">Partenaire</option>
+									<option value="0">Entreprise</option>
+									<option value="1">Partenaire</option>
               					</select>
 	          				</div>
 							<div class="form-check">

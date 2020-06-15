@@ -25,8 +25,8 @@
         <tr>
             <th>Nom du produit</th>
             <th>Quantité</th>
-            <th>Nom de l'entreprise</th>
-            <th>Adresse de l'entreprise</th>    
+            <th>Nom du gérant de l'entreprise</th>
+            <th>Prénom du gérant de l'entreprise</th>
         </tr>                   
     </thead></table>
     <script type="text/javascript">
@@ -42,8 +42,8 @@
                     event_data += '<tr>';
                     event_data += '<td>'+value.product_name+'</td>';
                     event_data += '<td>'+value.quantity+'</td>';
-                    event_data += '<td>'+value.enterprise_name+'</td>';
-                    event_data += '<td>'+value.entreprise_address+'</td>';
+                    event_data += '<td>'+value.user_firstname+'</td>';
+                    event_data += '<td>'+value.user_lastname+'</td>';
                     event_data += '</tr>';
                 });
             $("#list_table_json").append(event_data);

@@ -78,7 +78,7 @@
 
             <!--Card image-->
             <div class="view overlay">
-              <img src="https://afpah.com/wp-content/uploads/2020/03/gants-nitrile-jetable-bleu-alfa-2.jpg" class="card-img-top"
+              <img src="https://www.topmedic.fr/image/cache//catalog/topmedic/Gants-Jetable/Gants-Jetalbes-Nitrile/Gants-Jetable-1-600x600.jpg" class="card-img-top"
                 alt="Gants jetables">
               <a href="#">
                 <div class="mask rgba-white-slight"></div>
@@ -110,7 +110,7 @@
 
             <!--Card image-->
             <div class="view overlay">
-              <img src="https://www.pharmacielafayette.com/media/catalog/product/cache/75f063a64f057e4f5e54ba61d672a21a/6/2/621301_3518646213014_551a.jpg" class="card-img-top"
+              <img src="https://www.ld-medical.fr/2346-large_default/aniosgel-800.jpg" class="card-img-top"
                 alt="Gel hydroalcoolique">
               <a href="#">
                 <div class="mask rgba-white-slight"></div>

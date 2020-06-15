@@ -10,8 +10,7 @@ $status = $_SESSION['status'];
     echo 'Vous devez être connecté pour effectuer cette opération.';
     include("footer.php");
     exit();
-}
-?>
+}?>
     <style>
     form
     {
@@ -20,25 +19,24 @@ $status = $_SESSION['status'];
     </style>
     <body>
     
-    
-    <? if ($status != 1 || $status != 2) {
-            echo "Nous sommes désolés, mais vous vous êtes probablement trompés d'endroit.
-            Soit vous n'avez pas les permissions nécessaires pour accéder à cette page, soit vous
-            l'avez mal tapée.";} 
-        else if ($status == 1 || $status == 2) {
-            echo '<form action="../PHP/manage/staffChatPost.php" method="post">
-            <p>
-            <label for="message">Message</label> :  <input type="text" name="message" id="message" /><br />
+    <?php if ($_SESSION['status'] == 1) {
+        echo "Nous sommes désolés, mais vous vous êtes probablement trompés d'endroit.
+        Soit vous n'avez pas les permissions nécessaires pour accéder à cette page, soit vous
+        l'avez mal tapée.";} 
+        else if ($_SESSION['status'] == 0 || $_SESSION['status'] == 2) {
+        echo '<form action="../PHP/manage/staffChatPost.php" method="post">
+        <p>
+        <label for="message">Message</label> :  <input type="text" name="message" id="message" /><br />
 
-            <input type="submit" value="Envoyer" />
-        </p>
-        </form>';}?>
+        <input type="submit" value="Envoyer" />
+	</p>
+    </form>';};?>
 
 <?php
 // Connexion à la base de données
 try
 {
-	$bdd = new PDO('mysql:host=localhost;dbname=solidarity_bond;charset=utf8', 'root', '');
+	include("../PHP/manage/bdd.php");
 }
 catch(Exception $e)
 {
@@ -49,19 +47,27 @@ catch(Exception $e)
 $userStatus = $_SESSION['status'];
 
 // Récupération des 10 derniers messages
-$reponse = $bdd->prepare("SELECT userID, chatMESSAGE FROM chat ORDER BY ID DESC LIMIT 0, 10 WHERE userSTATUS = $userStatus");
+$reponse = $bdd->prepare("SELECT userID, chatMESSAGE FROM chat WHERE userSTATUS = :userstatus ORDER BY chatID DESC LIMIT 0, 10");
+$reponse->bindValue(':userstatus', $userStatus, PDO::PARAM_INT);
 $reponse->execute();
-$idUser = $reponse['userID'];
-$requeteForUser = $bdd->prepare('SELECT userFIRSTNAME, userLASTNAME from user WHERE id=:id');
+$answer1 = $reponse->fetchAll(PDO::FETCH_ASSOC);
+$idUser = $answer1[0]['userID'];
+// Récupération nom et prénom utilisateur
+$requeteForUser = $bdd->prepare('SELECT userFIRSTNAME, userLASTNAME from user WHERE userID=:id');
 $requeteForUser->bindValue(':id', $idUser, PDO::PARAM_STR);
 $requeteForUser->execute();
-$userInfo = $bdd->fetch(PDO::FETCH_ASSOC);
-$userData = implode(' ', $userInfo);
+$userInfo = $requeteForUser->fetchAll(PDO::FETCH_ASSOC);
+if ($userInfo == false){
+    echo "Aucun message envoyé dans le chat à ce jour.";
+}
+else {
+    $userData = implode(' ', $userInfo[0]);
+}
 $requeteForUser->closeCursor();
 // Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
-while ($donnees = $reponse->fetch())
+foreach ($answer1 as $donnees)
 {
-	echo '<p><strong>' . htmlspecialchars($userData) . '</strong> : ' . htmlspecialchars($donnees['chatMESSAGE']) . '</p>';
+    echo '<p><strong>' . htmlspecialchars($userData) . '</strong> : ' . htmlspecialchars($donnees['chatMESSAGE']) . '</p>';
 }
 
 $reponse->closeCursor();

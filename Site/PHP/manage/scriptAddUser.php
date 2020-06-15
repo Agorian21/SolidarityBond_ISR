@@ -7,14 +7,14 @@ if($_POST['formInscription'] == "S'inscrire") {
     $mail2 = htmlspecialchars($_POST['mail2']);
     $password = sha1($_POST['password']);
     $password2 = sha1($_POST['password2']);
-    $campus = htmlspecialchars($_POST['campus']);
+    $status = htmlspecialchars($_POST['status']);
     $testval = true;
-    if(isset($nom) && isset($prenom) && isset($mail) && isset($mail2) && isset($password) && isset($password2) && isset($campus)) {
+    if(isset($nom) && isset($prenom) && isset($mail) && isset($mail2) && isset($password) && isset($password2) && isset($status)) {
         $nomlength = strlen($nom);
         if($nomlength <= 255) {
             if($mail == $mail2) {
                 if(filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-                    $reqmail = $bdd->prepare("SELECT * FROM user WHERE mail = ?");
+                    $reqmail = $bdd->prepare("SELECT * FROM user WHERE userMAIL = ?");
                     $reqmail->execute(array($mail));
                     $mailexist = $reqmail->rowCount();
                     if($mailexist == 0) {
@@ -29,7 +29,7 @@ if($_POST['formInscription'] == "S'inscrire") {
                     }
                     if($password == $password2 && $testval == true) {
                         // use exec() because no results are returned
-                        $insertmbr = $bdd->prepare("INSERT INTO user (name, surname, mail, password, id_CESI_Campuses) VALUES ('$nom', '$prenom', '$mail', '$password', '$campus')");
+                        $insertmbr = $bdd->prepare("INSERT INTO user (userFIRSTNAME, userLASTNAME, userMAIL, userPASSWORD, userSTATUS) VALUES ('$nom', '$prenom', '$mail', '$password', '$status')");
                         $insertmbr->execute();
                         $connexion = $insertmbr->fetch() ? "Votre compte a bien été créé !" : "Echec de la création de l'utilisateur";
                         echo $connexion;
