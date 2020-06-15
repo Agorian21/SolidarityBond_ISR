@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=no">
 	<?php include("head.php"); 
-	include("header.php");?>
+	include("header.php"); ?>
 	<title>Connectez-vous</title>
 	<body>
 	<div class="container-fluid">
@@ -15,7 +15,7 @@
 			<div class="row">
 				<div class="col-md-5">
  					<form role="form" method="post" action="../PHP/manage/scriptAddUser.php">
-						<fieldset>							
+						<fieldset>						
 							<p class="text-uppercase pull-center"> S'inscrire </p>	
  							<div class="form-group">
 								<input type="text" name="name" id="name" class="form-control input-lg" placeholder="Nom">
@@ -42,7 +42,7 @@
 									<option value="Entreprise">Entreprise</option>
 									<option value="Partenaire">Partenaire</option>
               					</select>
-	          				</div>    
+	          				</div>
 							<div class="form-check">
 								<label class="form-check-label">
 								  <input type="checkbox" class="form-check-input">

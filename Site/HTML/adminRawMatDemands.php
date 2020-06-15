@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="fr">
-<?php include("head.php"); ?>
-
+    <?php include("head.php"); ?>
+	<title>Gérer les demandes de matière première</title>
 <body>
     <?php include("header.php"); 
     if(isset($_SESSION['status'])) {
@@ -12,24 +12,24 @@
             exit();
         }?>
     <main role="main" class="ml-sm-auto col-lg-10 px-4">
-	<p class="text-uppercase pull-center"> Liste des articles </p>
+	<p class="text-uppercase pull-center"> Matières premières nécessaires </p>
 
     </head>
     <body>
     <table id="list_table_json" class="table table-responsive table-hover table-bordered">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nom</th>
-            <th>Description</th>
-            <th>Lien photo</th>
-            <th>Stock</th>             
-        </tr>                   
-    </thead></table>
-    <script type="text/javascript">
+    <tr>
+    <th>ID</th>
+    <th>Nom</th>
+    <th>Descriptif</th>
+	<th>Raison</th>
+    <th>Quantité voulue</th>
+	<th>Demande traitée</th>
+    </tr>
+    </table>
+	<script type="text/javascript">
     $(document).ready(function(){
         $.ajax({
-         url: "http://localhost:8080/api/list_products",
+         url: "http://localhost:8080/api/list_rawmaterialdemands",
          dataType: 'json',
          type: 'get',
          cache: false,
@@ -41,8 +41,9 @@
                     event_data += '<td>'+value.id+'</td>';
                     event_data += '<td>'+value.name+'</td>';
                     event_data += '<td>'+value.description+'</td>';
-                    event_data += '<td>'+value.pic_url+'</td>';
-                    event_data += '<td>'+value.stock+'</td>';
+                    event_data += '<td>'+value.reason+'</td>';
+                    event_data += '<td>'+value.quantity+'</td>';
+                    event_data += '<td>'+value.isTreated+'</td>';
                     event_data += '</tr>';
                 });
             $("#list_table_json").append(event_data);
@@ -53,9 +54,9 @@
     });
 });
 </script>
-<form role="form" method="post" action="../PHP/manage/scriptArticle.php">
+<form role="form" method="post" action="../PHP/manage/scriptRawMat.php">
 	<fieldset>							
-	    <p class="text-uppercase pull-center"> Ajouter un article </p>	
+	    <p class="text-uppercase pull-center"> Ajouter une demande de matière première </p>	
             <div class="form-group">
                 <input type="text" name="name" id="name" class="form-control input-lg" placeholder="Nom">
             </div>
@@ -63,10 +64,10 @@
                 <input type="text" name="description" id="description" class="form-control input-lg" placeholder="Description">
             </div>
             <div class="form-group">
-                <input type="text" name="pic_url" id="pic_url" class="form-control input-lg" placeholder="Lien de la photo">
+                <input type="text" name="reason" id="reason" class="form-control input-lg" placeholder="Raison de la demande">
             </div>
             <div class="form-group">
-                <input type="text" name="stock" id="stock" class="form-control input-lg" placeholder="Stock">
+                <input type="text" name="quantity" id="quantity" class="form-control input-lg" placeholder="Quantité demandée">
             </div>
             <div>
                 <input type="submit" name="formScript" class="btn btn-md" value="Ajouter">
@@ -74,11 +75,11 @@
     </fieldset>
 </form>
 <div class="col-lg-2"></div>
-<form role="form" method="post" action="../PHP/manage/scriptArticle.php">
+<form role="form" method="post" action="../PHP/manage/scriptRawMat.php">
 	<fieldset>							
-		<p class="text-uppercase pull-center"> Modifier un article </p>
+		<p class="text-uppercase pull-center"> Modifier une demande </p>
 			<div class="form-group">
-				<input type="text" name="id" id="id" class="form-control input-lg" placeholder="Identifiant de l'article à modifier">
+				<input type="text" name="id" id="id" class="form-control input-lg" placeholder="Identifiant de la demande à modifier">
             </div>
  			<div class="form-group">
 				<input type="text" name="name" id="name" class="form-control input-lg" placeholder="Nom">
@@ -86,22 +87,22 @@
             <div class="form-group">
 				<input type="text" name="description" id="description" class="form-control input-lg" placeholder="Description">
 			</div>
-            <div class="form-group">
-				<input type="text" name="pic_url" id="pic_url" class="form-control input-lg" placeholder="Lien de la photo">
-			</div>
 			<div class="form-group">
-                <input type="text" name="stock" id="stock" class="form-control input-lg" placeholder="Stock">
+				<input type="text" name="reason" id="reason" class="form-control input-lg" placeholder="Raison de la demande">
+            </div>
+            <div class="form-group">
+                <input type="text" name="quantity" id="quantity" class="form-control input-lg" placeholder="Quantité demandée">
             </div>
             <div>
 				<input type="submit" name="formScript" class="btn btn-md" value="Modifier">
 			</div> 
     </fieldset>
 </form>
-<form role="form" method="post" action="../PHP/manage/scriptArticle.php">
+<form role="form" method="post" action="../PHP/manage/scriptRawMat.php">
 	<fieldset>							
-		<p class="text-uppercase pull-center"> Supprimer un article </p>	
+		<p class="text-uppercase pull-center"> Supprimer une demande </p>	
 			<div class="form-group">
-				<input type="text" name="id" id="id" class="form-control input-lg" placeholder="Identifiant de l'article à supprimer">
+				<input type="text" name="id" id="id" class="form-control input-lg" placeholder="Identifiant de la demande à supprimer">
             </div>
 			<input type="submit" name="formScript" class="btn btn-md" value="Supprimer">
     </fieldset>

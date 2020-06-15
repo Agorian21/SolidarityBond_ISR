@@ -1,6 +1,13 @@
 <!doctype html>
 <html lang="fr">
-    <?php include("head.php"); ?>
+    <?php include("head.php"); 
+    if(isset($_SESSION['status'])) {
+        $status = $_SESSION['status'];
+        } else if (!isset($_SESSION['status'])) {
+            echo 'Vous devez être connecté pour effectuer cette opération.';
+            include("footer.php");
+            exit();
+        }?>
 	<title>Demandes de matières premières par le staff</title>
 
 <body>
@@ -16,6 +23,7 @@
     <th>Nom</th>
     <th>Descriptif</th>
 	<th>Raison</th>
+    <th>Quantité</th>
 	<th>Demande traitée</th>
     </tr>
     </table>
@@ -35,6 +43,7 @@
                     event_data += '<td>'+value.name+'</td>';
                     event_data += '<td>'+value.description+'</td>';
                     event_data += '<td>'+value.reason+'</td>';
+                    event_data += '<td>'+value.quantity+'</td>';
                     event_data += '<td>'+value.isTreated+'</td>';
                     event_data += '</tr>';
                 });
@@ -47,7 +56,7 @@
 });
 </script>
     <form role="form" method="post" action="../PHP/manage/scriptModifyStaffDemand.php">
-		<fieldset>							
+		<fieldset>
 			<p class="text-uppercase pull-center"> Valider une demande </p>	
 				<div class="form-group">
 					<input type="text" name="id" id="id" class="form-control input-lg" placeholder="Identifiant de la demande à valider">

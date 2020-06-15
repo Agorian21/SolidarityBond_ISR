@@ -27,16 +27,19 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 1) {
             </li>';}
 if (isset($_SESSION['status']) && $_SESSION['status'] == 2){
     echo '<li class="nav-item">
-            <a class="nav-link" href="adminArticles.php">Gérer les articles</a>
+            <a class="nav-link" href="adminArticles.php">Gestion articles</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="adminUsers.php">Gérer les utilisateurs</a>
+            <a class="nav-link" href="adminUsers.php">Gestion utilisateurs</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="adminOrders.php">Gérer les commandes</a>
+            <a class="nav-link" href="adminOrders.php">Gestion commandes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="staffEntChat.php">Discuter avec les entreprises</a>
+            <a class="nav-link" href="adminRawMatDemands.php">Gestion demandes matière première</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="staffEntChat.php">Discussion entreprises</a>
           </li>';}
 session_write_close();
 ?>

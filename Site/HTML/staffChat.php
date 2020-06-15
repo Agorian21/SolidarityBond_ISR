@@ -4,7 +4,6 @@
 <title>Mini-chat</title>
 <?php include("head.php");
 include("header.php"); 
-session_start();
 if(isset($_SESSION['status'])) {
 $status = $_SESSION['status'];
 } else if (!isset($_SESSION['status'])) {
@@ -12,7 +11,6 @@ $status = $_SESSION['status'];
     include("footer.php");
     exit();
 }
-session_write_close();
 ?>
     <style>
     form

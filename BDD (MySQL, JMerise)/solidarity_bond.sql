@@ -26,9 +26,7 @@ CREATE TABLE IF NOT EXISTS `basket` (
   `basketQUANTITY` int(11) NOT NULL,
   PRIMARY KEY (`basketID`),
   KEY `FK1_productID` (`productID`),
-  KEY `FK2_userID` (`userID`),
-  CONSTRAINT `FK1_productID` FOREIGN KEY (`productID`) REFERENCES `product` (`productID`),
-  CONSTRAINT `FK2_userID` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`)
+  KEY `FK2_userID` (`userID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- Listage des données de la table solidarity_bond.basket : ~0 rows (environ)
@@ -45,8 +43,7 @@ CREATE TABLE IF NOT EXISTS `chat` (
   `chatMESSAGE` varchar(2000) COLLATE utf8_bin NOT NULL,
   `chatTIMER` varchar(15) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`chatID`),
-  KEY `FK_userID` (`userID`),
-  CONSTRAINT `FK_userID` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`)
+  KEY `FK_userID` (`userID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- Listage des données de la table solidarity_bond.chat : ~2 rows (environ)
@@ -64,8 +61,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `productID` int(10) NOT NULL,
   `orderQuantity` int(10) NOT NULL,
   PRIMARY KEY (`orderID`),
-  KEY `FK_ProductID` (`productID`),
-  CONSTRAINT `FK_ProductID` FOREIGN KEY (`productID`) REFERENCES `product` (`productID`)
+  KEY `FK_ProductID` (`productID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- Listage des données de la table solidarity_bond.orders : ~0 rows (environ)
