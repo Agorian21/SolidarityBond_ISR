@@ -12,11 +12,12 @@ if(isset($_GET['id'])) {
     $nomProduit = $connexion['productNAME'];
     $descProduit = $connexion['productDESC'];
     $picProduit = $connexion['picURL'];
+    $prixProduit = $connexion['productPRICE'];
     $stockProduit = $connexion['productSTOCK'];
     } else {
     $erreur = "Cet article est indisponible pour le moment.";
     echo $erreur;
-    include("footer.php");
+    include("important/footer.php");
     exit();
     }
     session_write_close();

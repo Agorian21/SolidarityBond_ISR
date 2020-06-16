@@ -28,6 +28,7 @@ if ($answer == "Connexion réussie.") {
     $_SESSION['id'] = $answer2['userID'];
     $_SESSION['name'] = $answer2['userFIRSTNAME'];
     $_SESSION['surname'] = $answer2['userLASTNAME'];
+    $_SESSION['mail'] = $answer2['userMAIL'];
     $_SESSION['status'] = $answer2['userSTATUS'];
     // Fermeture et écriture de la session, et redirection vers la page d'accueil.
     session_write_close();

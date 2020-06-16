@@ -3,6 +3,9 @@ session_start();
 if (isset($_SESSION['name']) && isset($_SESSION['surname'])) {
     echo '<li class="nav-item">
             <a class="nav-link" href="../PHP/manage/disconnect.php">Déconnexion</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="myAccount.php">Mon compte</a>
         </li>';}
 else if (!isset($_SESSION['name']) && !isset($_SESSION['surname'])) {
     echo '<li class="nav-item">
@@ -13,7 +16,7 @@ else if (!isset($_SESSION['name']) && !isset($_SESSION['surname'])) {
         </li>';}
 if (isset($_SESSION['status']) && $_SESSION['status'] == 0) {
     echo '<li class="nav-item">
-            <a class="nav-link" href="staffChat.php">Discuter avec le staff</a>
+            <a class="nav-link" href="staffEntChat.php">Discuter avec le staff</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="cart.php">Votre panier</a>
@@ -40,6 +43,9 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 2){
           </li>
           <li class="nav-item">
             <a class="nav-link" href="staffEntChat.php">Discussion entreprises</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="staffChat.php">Discussion partenaires</a>
           </li>';}
 session_write_close();
 ?>

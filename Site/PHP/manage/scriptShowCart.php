@@ -11,7 +11,9 @@
         $search->execute();
 
         foreach($search->fetchAll(PDO::FETCH_ASSOC) as $rowProduct){ // iterate over all the results
-            echo "<tr><td>" . $rowProduct['productNAME'] . "</td><td>" . $rowOrder["basketQUANTITY"] . "</td></tr>";
+          $price = $rowProduct["productPRICE"] * $rowOrder["basketQUANTITY"];
+          
+            echo "<tr><td>" . $rowProduct['productNAME'] . "</td><td>" . $rowOrder["basketQUANTITY"] . "</td><td>" . $price . "€" . "</td><td>" . $rowProduct["productSTOCK"] . "</td></tr>";
         }
     };
     echo "</table>";
