@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 16 juin 2020 à 15:55
+-- Généré le :  mer. 17 juin 2020 à 16:53
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -44,10 +44,7 @@ CREATE TABLE IF NOT EXISTS `basket` (
 --
 
 INSERT INTO `basket` (`basketID`, `productID`, `userID`, `basketQUANTITY`) VALUES
-(1, 1, 3, 500),
-(3, 3, 3, 50),
-(4, 2, 3, 5),
-(5, 4, 3, 10);
+(1, 1, 3, 500);
 
 -- --------------------------------------------------------
 
@@ -90,6 +87,7 @@ INSERT INTO `chat` (`chatID`, `userID`, `userSTATUS`, `chatMESSAGE`, `chatTIMER`
 DROP TABLE IF EXISTS `orders`;
 CREATE TABLE IF NOT EXISTS `orders` (
   `orderID` int(10) NOT NULL AUTO_INCREMENT,
+  `userID` int(11) NOT NULL,
   `productID` int(10) NOT NULL,
   `orderQUANTITY` int(10) NOT NULL,
   `orderSTATUS` tinyint(1) NOT NULL,
@@ -164,10 +162,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`userID`, `userLASTNAME`, `userFIRSTNAME`, `userMAIL`, `userPASSWORD`, `userSTATUS`) VALUES
-(1, 'Ismaël', 'El Kihel', 'ismael.elkihel@viacesi.fr', 'd4bafb9bd40b8c760caf31c0255a16ca2acdc782', 2),
-(2, 'Test', 'Test', 'test@test.com', 'd4bafb9bd40b8c760caf31c0255a16ca2acdc782', 0),
+(1, 'Ismaël', 'El Kihel', 'admin@solidaritybond51.yo.fr', 'd4bafb9bd40b8c760caf31c0255a16ca2acdc782', 2),
 (3, 'bernard', 'rodolphe', 'rbernard@ub-enterprise.com', 'd4bafb9bd40b8c760caf31c0255a16ca2acdc782', 0),
-(4, 'bernard', 'gillowel', 'g-b@lacasadelospomelos.net', 'b95ec9182c4aab1a4f0774aea943d816a1e19a57', 1);
+(4, 'paul', 'gillowel', 'g-b@lacasadelospomelos.net', 'b95ec9182c4aab1a4f0774aea943d816a1e19a57', 1);
 
 --
 -- Contraintes pour les tables déchargées

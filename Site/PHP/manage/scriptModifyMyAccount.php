@@ -1,60 +1,37 @@
 <?php
 include('bdd.php');
-if($_POST['formScript'] == "Ajouter") {
-    $nom = htmlspecialchars($_POST['name']);
-    $description = htmlspecialchars($_POST['description']);
-    $pic_url = htmlspecialchars($_POST['pic_url']);
-    $stock = htmlspecialchars($_POST['stock']);
-    if(isset($nom) && isset($description) && isset($pic_url) && isset($stock)) {
-        $req = $bdd->prepare("SELECT * FROM product WHERE productNAME = ?");
-        $req->execute(array($nom));
-        $articleexist = $req->rowCount();
-        if($articleexist == 0) {
+if(empty($_POST['formPasswordChange']) && !empty($_POST['formEmailChange'] && $_POST['formEmailChange'] == "Modifier")) {
+    session_start();
+    $mail = $_POST["mail"];
+    $mail2 = $_POST["mail2"];
+    $id = $_SESSION['id'];
+    session_write_close();
+    if(isset($mail) && isset($mail2) && ($mail == $mail2) && filter_var($mail, FILTER_VALIDATE_EMAIL)) {
             // use exec() because no results are returned
-            $insertmbr = $bdd->prepare("INSERT INTO product (productNAME, productDESC, picURL, productSTOCK) VALUES ('$nom', '$description', '$pic_url', '$stock')");
+            $insertmbr = $bdd->prepare("UPDATE user SET userMAIL = '$mail' WHERE userID = '$id'");
             $insertmbr->execute();
-            $connexion = $insertmbr->fetch() ? "OK" : "NOK";
-            echo $connexion;
+            session_start();
+            $_SESSION['mail'] = $mail;
+            session_write_close();
+            header("Location: ../../HTML/myAccount.php");
         }else{
-            echo "Article déjà existant dans la base de données."; 
+            echo "L'email entré est invalide, veuillez réessayer"; 
         }
-    }
 }
-else if($_POST['formScript'] == "Modifier") {
-    $id = htmlspecialchars($_POST['id']);
-    $nom = htmlspecialchars($_POST['name']);
-    $description = htmlspecialchars($_POST['description']);
-    $pic_url = htmlspecialchars($_POST['pic_url']);
-    $stock = htmlspecialchars($_POST['stock']);
-    if(isset($id) && isset($nom) && isset($description) && isset($pic_url) && isset($stock)) {
-        $req = $bdd->prepare("SELECT * FROM product WHERE id = ?");
-        $req->execute(array($id));
-        $articleexist = $req->rowCount();
-        if($articleexist == 1) {
-            // use exec() because no results are returned
-            $insertmbr = $bdd->prepare("UPDATE product SET productNAME = '$nom', productDESC = '$description', picURL = '$pic_url', productSTOCK = '$stock') WHERE productID = '$id'");
-            $insertmbr->execute();
-            $connexion = "Article modifié !";
-            echo $connexion;
+else if(empty($_POST['formEmailChange']) && !empty($_POST['formPasswordChange']) && $_POST['formPasswordChange'] == "Modifier") {
+    session_start();
+    $password = sha1($_POST['password']);
+    $password2 = sha1($_POST['password2']);
+    $id = $_SESSION['id'];
+    session_write_close();
+    if(isset($id) && isset($password) && isset($password2)) {
+        if((preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/', $_POST['password'])) == 1) {
+        $req = $bdd->prepare("UPDATE user SET userPASSWORD = $password WHERE userID = $id");
+        $req->execute();
+        header("Location: ../../HTML/myAccount.php");
+        echo "Mot de passe modifié.";
         }else{
-            echo "Article non existant dans la base de données."; 
-        }
-    }
-}
-else if($_POST['formScript'] == "Supprimer") {
-    $id = htmlspecialchars($_POST['id']);                                 
-    if(isset($id)) {
-        $req = $bdd->prepare("SELECT * FROM product WHERE productID = ?");
-        $req->execute(array($id));
-        $articleexist = $req->rowCount();
-        if($articleexist == 1) {
-            // use exec() because no results are returned
-            $insertmbr = $bdd->prepare("DELETE FROM product WHERE productID = '$id'");
-            $insertmbr->execute();
-            $connexion = "Article supprimé !";
-            echo $connexion;
-        }else{
-            echo "Article non supprimé, probablement car il n'existe pas dans la base de données."; 
+            echo "Le mot de passe renseigné ne correspond pas aux critères demandés."; 
         }
     }
 }

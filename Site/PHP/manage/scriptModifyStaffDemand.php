@@ -10,4 +10,3 @@ if(isset($_GET['id'])) {
     $reqprod->execute();
     header("Location: ../../HTML/partnerStaffDemands.php");
 }
-?>

@@ -14,45 +14,8 @@
     <main role="main" class="ml-sm-auto col-lg-10 px-4">
 	<p class="text-uppercase pull-center"> Liste des articles </p>
 
-    </head>
-    <body>
-    <table id="list_table_json" class="table table-responsive table-hover table-bordered">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nom</th>
-            <th>Description</th>
-            <th>Lien photo</th>
-            <th>Stock</th>             
-        </tr>                   
-    </thead></table>
-    <script type="text/javascript">
-    $(document).ready(function(){
-        $.ajax({
-         url: "http://localhost:8080/api/list_products",
-         dataType: 'json',
-         type: 'get',
-         cache: false,
-            success: function(data){
-             var event_data = '';
-             $.each(data, function(index, value){
-                 console.log("data.user");
-                    event_data += '<tr>';
-                    event_data += '<td>'+value.id+'</td>';
-                    event_data += '<td>'+value.name+'</td>';
-                    event_data += '<td>'+value.description+'</td>';
-                    event_data += '<td>'+value.pic_url+'</td>';
-                    event_data += '<td>'+value.stock+'</td>';
-                    event_data += '</tr>';
-                });
-            $("#list_table_json").append(event_data);
-        },
-        error: function(d){
-            alert("L'API ne répond pas, veuillez relancer le serveur.");
-        }
-    });
-});
-</script>
+    <?=include('../PHP/manage/scriptGenerateArticleTable.php');?>
+
 <form role="form" method="post" action="../PHP/manage/scriptArticle.php">
 	<fieldset>							
 	    <p class="text-uppercase pull-center"> Ajouter un article </p>	

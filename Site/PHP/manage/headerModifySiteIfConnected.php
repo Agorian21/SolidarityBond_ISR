@@ -39,7 +39,7 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 2){
             <a class="nav-link" href="adminOrders.php">Gestion commandes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="adminRawMatDemands.php">Gestion demandes matière première</a>
+            <a class="nav-link" href="adminRawMatDemands.php">Gestion matière première</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="staffEntChat.php">Discussion entreprises</a>
